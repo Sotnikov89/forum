@@ -7,7 +7,7 @@ import ru.forum.repositories.UserRepository;
 
 @Service
 @AllArgsConstructor
-public class H2UserService implements UserService {
+public class DefaultUserService implements UserService {
 
     private final UserRepository userRepository;
 

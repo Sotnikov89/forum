@@ -2,6 +2,7 @@ package ru.forum.bootstrap;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import ru.forum.domain.Post;
@@ -13,10 +14,10 @@ import java.util.List;
 
 @Component
 @AllArgsConstructor
+@Profile("h2")
 public class LoadForH2 implements ApplicationListener<ContextRefreshedEvent> {
 
     private final PostRepository postRepository;
-
 
     @Override
     @Transactional

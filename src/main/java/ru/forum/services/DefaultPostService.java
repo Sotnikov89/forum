@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class H2PostService implements PostService {
+public class DefaultPostService implements PostService {
 
     private final PostRepository postRepository;
 

@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.forum.services.H2PostService;
+import ru.forum.services.DefaultPostService;
 
 @Controller
 @AllArgsConstructor
 public class IndexController {
 
-    private final H2PostService postService;
+    private final DefaultPostService postService;
 
     @GetMapping({"/", "/index"})
     public String index(Model model) {

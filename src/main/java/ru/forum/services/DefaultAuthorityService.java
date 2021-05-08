@@ -7,7 +7,7 @@ import ru.forum.repositories.AuthorityRepository;
 
 @Service
 @AllArgsConstructor
-public class H2AuthorityService implements AuthorityService {
+public class DefaultAuthorityService implements AuthorityService {
 
     private final AuthorityRepository authorityRepository;
 

@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.forum.domain.User;
-import ru.forum.services.H2AuthorityService;
-import ru.forum.services.H2UserService;
+import ru.forum.services.DefaultAuthorityService;
+import ru.forum.services.DefaultUserService;
 
 @Controller
 @AllArgsConstructor
 public class RegControl {
 
     //private final PasswordEncoder encoder;
-    private final H2UserService userService;
-    private final H2AuthorityService authorityService;
+    private final DefaultUserService userService;
+    private final DefaultAuthorityService authorityService;
 
     @GetMapping("/reg")
     public String reg() {
