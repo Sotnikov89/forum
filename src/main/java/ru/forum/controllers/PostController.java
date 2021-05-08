@@ -24,7 +24,7 @@ public class PostController {
         return "postDesc";
     }
 
-        @GetMapping("/create")
+    @GetMapping("/create")
     public String getCreateForm(Model model) {
         model.addAttribute("post", Post.builder().created(LocalDateTime.now()).build());
         return "postEdit";

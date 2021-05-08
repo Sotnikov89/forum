@@ -20,6 +20,7 @@ public class DefaultUserService implements UserService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        userRepository.findAll().forEach(System.out::println);
         return rsl;
     }
 }
