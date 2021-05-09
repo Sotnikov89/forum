@@ -2,10 +2,12 @@ package ru.forum.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -13,9 +15,12 @@ import ru.forum.ForumApplication;
 import ru.forum.domain.Post;
 import ru.forum.services.PostService;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -74,5 +79,23 @@ class PostControllerTest {
                 .andExpect(view().name("postEdit"));
 
         verify(postService, times(1)).findById(anyInt());
+    }
+
+    @Test
+    @WithMockUser
+    void saveOrUpdate() throws Exception {
+        this.mockMvc.perform(post("/saveOrUpdate")
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                .param("name","Название поста")
+                .param("desc", "Описание поста"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/index"));
+        verify(postService, times(1)).save(any());
+
+        ArgumentCaptor<Post> argument = ArgumentCaptor.forClass(Post.class);
+        verify(postService).save(argument.capture());
+        assertThat(argument.getValue().getName(), is("Название поста"));
+        assertThat(argument.getValue().getDesc(), is("Описание поста"));
     }
 }
