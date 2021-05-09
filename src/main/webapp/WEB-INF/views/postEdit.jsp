@@ -42,11 +42,6 @@
                             <a class="nav-link" href="/forum/login">Вход/Регистрация</a>
                         </li>
                     </ul>
-                    <span class="navbar-text">
-                        <c:if test="${not empty user}">
-                            Добро пожаловать <c:out value="${user.username}"/>!
-                        </c:if>
-                    </span>
                 </div>
             </div>
         </nav>

@@ -5,10 +5,10 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-import ru.forum.domain.Authority;
 import ru.forum.domain.Post;
-import ru.forum.repositories.AuthorityRepository;
+import ru.forum.domain.Role;
 import ru.forum.repositories.PostRepository;
+import ru.forum.repositories.RoleRepository;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
@@ -20,13 +20,13 @@ import java.util.List;
 public class LoadForH2 implements ApplicationListener<ContextRefreshedEvent> {
 
     private final PostRepository postRepository;
-    private final AuthorityRepository authorityRepository;
+    private final RoleRepository roleRepository;
 
     @Override
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         postRepository.saveAll(createPosts());
-        authorityRepository.save(Authority.builder().authority("USER").build());
+        roleRepository.save(Role.builder().name("ROLE_USER").build());
     }
 
     private List<Post> createPosts() {

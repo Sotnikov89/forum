@@ -2,9 +2,9 @@ package ru.forum.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.forum.domain.User;
+import ru.forum.domain.Role;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-    User findByUsername(String username);
+public interface RoleRepository extends JpaRepository<Role, Integer> {
+    Role findByName(String name);
 }

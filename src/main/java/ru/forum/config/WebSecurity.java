@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import ru.forum.services.DefaultUserService;
 
 @Configuration
 @EnableWebSecurity
@@ -17,6 +18,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    @Autowired
+    DefaultUserService userService;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
@@ -24,6 +28,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .withUser("user").password(passwordEncoder.encode("123")).roles("USER")
                 .and()
                 .withUser("admin").password(passwordEncoder.encode("123")).roles("USER", "ADMIN");
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
 
     @Bean
