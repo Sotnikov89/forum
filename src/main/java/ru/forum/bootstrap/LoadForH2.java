@@ -14,9 +14,7 @@ import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Component
 @AllArgsConstructor
-@Profile("h2")
 public class LoadForH2 implements ApplicationListener<ContextRefreshedEvent> {
 
     private final PostRepository postRepository;

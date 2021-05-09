@@ -7,12 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import ru.forum.domain.Role;
 import ru.forum.domain.User;
-import ru.forum.services.DefaultRoleService;
-import ru.forum.services.DefaultUserService;
+import ru.forum.services.RoleService;
+import ru.forum.services.UserService;
 
-import java.util.Collections;
 import java.util.Set;
 
 @Controller
@@ -20,8 +18,8 @@ import java.util.Set;
 public class RegControl {
 
     private final PasswordEncoder encoder;
-    private final DefaultUserService userService;
-    private final DefaultRoleService roleService;
+    private final UserService userService;
+    private final RoleService roleService;
 
     @GetMapping("/reg")
     public String reg() {

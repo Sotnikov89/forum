@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.forum.domain.Post;
-import ru.forum.services.DefaultPostService;
+import ru.forum.services.PostService;
 
 import java.time.LocalDateTime;
 
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class PostController {
 
-    private final DefaultPostService postService;
+    private final PostService postService;
 
     @GetMapping("/{id}")
     public String getPostPage(@PathVariable int id, Model model) {
