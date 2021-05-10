@@ -15,7 +15,7 @@ import java.util.Set;
 
 @Controller
 @AllArgsConstructor
-public class RegControl {
+public class RegController {
 
     private final PasswordEncoder encoder;
     private final UserService userService;
