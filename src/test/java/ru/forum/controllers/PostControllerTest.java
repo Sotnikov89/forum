@@ -96,6 +96,6 @@ class PostControllerTest {
         ArgumentCaptor<Post> argument = ArgumentCaptor.forClass(Post.class);
         verify(postService).save(argument.capture());
         assertThat(argument.getValue().getName(), is("Название поста"));
-        assertThat(argument.getValue().getDesc(), is("Описание поста"));
+        assertThat(argument.getValue().getDescription(), is("Описание поста"));
     }
 }
