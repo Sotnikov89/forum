@@ -20,6 +20,6 @@ public class Post {
     private int id;
     private String name;
     @Lob
-    private String desc;
+    private String description;
     private LocalDateTime created;
 }
