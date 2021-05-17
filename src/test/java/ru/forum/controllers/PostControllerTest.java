@@ -87,7 +87,7 @@ class PostControllerTest {
         this.mockMvc.perform(post("/saveOrUpdate")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("name","Название поста")
-                .param("desc", "Описание поста"))
+                .param("description", "Описание поста"))
                 .andDo(print())
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/index"));

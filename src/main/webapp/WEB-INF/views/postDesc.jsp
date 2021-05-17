@@ -49,7 +49,7 @@
             </div>
             <div class="mb-3">
                 <label for="desc" class="form-label">Описание</label>
-                <textarea class="form-control" id="desc" rows="3" readonly><c:out value="${post.desc}"/></textarea>
+                <textarea class="form-control" id="desc" rows="3" readonly><c:out value="${post.description}"/></textarea>
             </div>
         </div>
     </div>
