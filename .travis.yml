@@ -23,3 +23,7 @@ env:
   global:
     - CODECOV_TOKEN="fc3dd30f-425b-490d-867e-361cddaa6a43"
 
+deploy:
+  provider: heroku
+  api_key: 70b04968-dc4b-4ff5-9104-482f28b29610
+  app: radiant-refuge-24184
