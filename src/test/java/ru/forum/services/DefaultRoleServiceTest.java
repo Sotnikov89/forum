@@ -3,11 +3,9 @@ package ru.forum.services;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.forum.ForumApplication;
 import ru.forum.domain.Role;
-import ru.forum.repositories.PostRepository;
 import ru.forum.repositories.RoleRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
