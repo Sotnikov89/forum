@@ -31,13 +31,13 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="/forum/index">Главная</a>
+                            <a class="nav-link" href=${pageContext.request.contextPath}/index>Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/forum/create">Добавить пост</a>
+                            <a class="nav-link" href=${pageContext.request.contextPath}/create>Добавить пост</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/forum/login">Вход/Регистрация</a>
+                            <a class="nav-link" href=${pageContext.request.contextPath}/login>Вход/Регистрация</a>
                         </li>
                     </ul>
                 </div>
@@ -58,14 +58,14 @@
             <c:forEach items="${posts}" var="post">
                 <tr>
                     <td>
-                        <a href="/forum/<c:out value="${post.id}"/>">
+                        <a href="<c:out value="${post.id}"/>">
                         <c:out value="${post.name}"/>
                         </a>
                     </td>
                     <td><c:out value="${post.created.getDayOfMonth()}"/> <c:out value="${post.created.getMonth()}"/>
                         <c:out value="${post.created.getHour()}"/>:<c:out value="${post.created.getMinute()}"/>
                     </td>
-                    <td><a href="/forum/update/<c:out value="${post.id}"/>"><i class="fa fa-gear custom"></i></a></td>
+                    <td><a href="update/<c:out value="${post.id}"/>"><i class="fa fa-gear custom"></i></a></td>
                 </tr>
             </c:forEach>
             </tbody>

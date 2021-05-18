@@ -33,13 +33,13 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="/forum/index">Главная</a>
+                            <a class="nav-link" href=${pageContext.request.contextPath}/index>Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/forum/create">Добавить пост</a>
+                            <a class="nav-link" href=${pageContext.request.contextPath}/create>Добавить пост</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/forum/login">Вход/Регистрация</a>
+                            <a class="nav-link" href=${pageContext.request.contextPath}/login>Вход/Регистрация</a>
                         </li>
                     </ul>
                 </div>
@@ -55,8 +55,8 @@
                     <form:input path="name" value="${post.name}" type="text" class="form-control" id="name" aria-describedby="emailHelp"/>
                 </div>
                 <div class="mb-3">
-                    <label for="desc" class="form-label">Описание</label>
-                    <form:textarea path="desc" value="${post.description}" class="form-control" id="desc" rows="3"/>
+                    <label for="description" class="form-label">Описание</label>
+                    <form:textarea path="description" value="${post.description}" class="form-control" id="description" rows="3"/>
                 </div>
                 <button type="submit" class="btn btn-primary">Сохранить</button>
             </form:form>
