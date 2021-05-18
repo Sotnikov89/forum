@@ -48,7 +48,7 @@
     </div>
     <div class="row">
         <div class="row">
-            <form:form action="/forum/saveOrUpdate" method="post" modelAttribute="post">
+            <form:form action='/saveOrUpdate' method="post" modelAttribute="post">
                 <form:input path="id" type="hidden" value="${post.id}"/>
                 <div class="mb-3">
                     <label for="name" class="form-label">Название темы</label>
