@@ -56,7 +56,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="desc" class="form-label">Описание</label>
-                    <form:textarea path="desc" value="${post.desc}" class="form-control" id="desc" rows="3"/>
+                    <form:textarea path="desc" value="${post.description}" class="form-control" id="desc" rows="3"/>
                 </div>
                 <button type="submit" class="btn btn-primary">Сохранить</button>
             </form:form>

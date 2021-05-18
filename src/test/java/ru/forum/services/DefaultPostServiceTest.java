@@ -32,21 +32,21 @@ class DefaultPostServiceTest {
 
     @Test
     void findById() {
-        Post post = Post.builder().id(3).name("Тема").desc("Описание").build();
+        Post post = Post.builder().id(3).name("Тема").description("Описание").build();
         Optional<Post> postOptional = Optional.of(post);
         when(postRepository.findById(anyInt())).thenReturn(postOptional);
         Post returnPost = postService.findById(3);
         assertEquals(returnPost.getId(), 3);
         assertEquals(returnPost.getName(), "Тема");
-        assertEquals(returnPost.getDesc(), "Описание");
+        assertEquals(returnPost.getDescription(), "Описание");
     }
 
     @Test
     void findAll() {
         List<Post> posts = List.of(
-                Post.builder().id(3).name("Тема3").desc("Описание3").build(),
-                Post.builder().id(5).name("Тема5").desc("Описание5").build(),
-                Post.builder().id(7).name("Тема7").desc("Описание7").build()
+                Post.builder().id(3).name("Тема3").description("Описание3").build(),
+                Post.builder().id(5).name("Тема5").description("Описание5").build(),
+                Post.builder().id(7).name("Тема7").description("Описание7").build()
         );
         when(postService.findAll()).thenReturn(posts);
         List<Post> returnPosts = postService.findAll();
@@ -55,7 +55,7 @@ class DefaultPostServiceTest {
 
     @Test
     void save() {
-        Post post = Post.builder().id(3).name("Тема").desc("Описание").build();
+        Post post = Post.builder().id(3).name("Тема").description("Описание").build();
         postService.save(post);
 
         verify(postRepository,times(1)).save(post);
