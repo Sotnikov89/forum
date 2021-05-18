@@ -28,12 +28,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .withUser("user").password(passwordEncoder.encode("123")).roles("USER")
                 .and()
                 .withUser("admin").password(passwordEncoder.encode("123")).roles("USER", "ADMIN");
-        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
     }
 
     @Override
