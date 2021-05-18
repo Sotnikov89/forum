@@ -7,7 +7,7 @@ create table posts (
 create table users (
                        id serial primary key,
                        password varchar,
-                       username varchar,
+                       username varchar unique,
                        enabled boolean
 );
 create table roles (

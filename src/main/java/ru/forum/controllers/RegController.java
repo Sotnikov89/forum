@@ -32,7 +32,7 @@ public class RegController {
         user.setPassword(encoder.encode(user.getPassword()));
         user.setRoles(Set.of(roleService.findByName("ROLE_USER")));
         boolean rsl = userService.save(user);
-        if (rsl) {
+        if (!rsl) {
             model.addAttribute("errorMessage", "Username is exist !!");
         }
         return rsl ? "redirect:/login" : "/reg";
